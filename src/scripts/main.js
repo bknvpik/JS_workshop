@@ -1,14 +1,20 @@
 function main() {
-    const $eventList = document.querySelector('.event-list');
-    const $search = document.querySelector('#search');
+  const $outlet = document.querySelector('#content');
 
-    for(let i = 0; i < 3; i++) {
-        const event = new EventComponent();
-        event.render($eventList);
+  const routes = {
+    '/': () => {
+      const page = new HomePage();
+      page.render($outlet);
+    },
+    '/map': () => {
+      const page = new MapPage();
+      page.render($outlet);
     }
-    
-    const search = new SearchComponent();
-    search.render($search);
+  }
+
+  const router = new Router();
+  router.use(routes);
+  router.start();
 }
 
 window.addEventListener('DOMContentLoaded', main);
