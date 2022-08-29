@@ -1,0 +1,13 @@
+{
+  "private": true,
+  "name": "workshop-javascript-events",
+  "version": "1.0.0",
+  "description": "",
+  "license": "MIT",
+  "scripts": {
+    "start": "http-server -c-1 src/"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}
