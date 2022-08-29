@@ -53,7 +53,7 @@ main {
   margin: 5px 0;
 }
 
-.events-list {
+.event-list {
   display: flex;
   justify-content: start;
   flex-wrap: wrap;

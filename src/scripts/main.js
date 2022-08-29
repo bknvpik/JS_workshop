@@ -1,10 +1,14 @@
 function main() {
-    const eventList = document.querySelector('.events-list');
-    
+    const $eventList = document.querySelector('.event-list');
+    const $search = document.querySelector('#search');
+
     for(let i = 0; i < 3; i++) {
-        const evt = new EventComponent();
-        evt.render(eventList);
+        const event = new EventComponent();
+        event.render($eventList);
     }
+    
+    const search = new SearchComponent();
+    search.render($search);
 }
 
 window.addEventListener('DOMContentLoaded', main);

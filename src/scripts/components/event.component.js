@@ -1,8 +1,4 @@
 class EventComponent {
-    constructor() {
-        console.log("Class EventComponent");
-    }
-    
     template() {
         return `
         <div class="event" data-type="component">
@@ -12,11 +8,8 @@ class EventComponent {
         </div>`;
     }
     
-    render(placeholder) {
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(this.template(), "text/html");
-        const component = doc.body.firstElementChild;
-        
-        placeholder.append(component);
+    render($container) {
+        const $component = compile(this.template());
+        $container.append($component);
     }
 }
