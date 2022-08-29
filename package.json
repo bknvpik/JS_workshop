@@ -7,7 +7,8 @@
   "scripts": {
     "start": "http-server -c-1 src/",
     "prepare": "husky install",
-    "pre-commit": "lint-staged"
+    "pre-commit": "lint-staged",
+    "deploy": "gh-pages -d src/"
   },
   "lint-staged": {
     "*.js": "prettier --write"
@@ -21,6 +22,7 @@
     "proseWrap": "never"
   },
   "devDependencies": {
+    "gh-pages": "^4.0.0",
     "http-server": "^14.1.1",
     "husky": "^8.0.0",
     "lint-staged": "^13.0.3",
