@@ -5,9 +5,25 @@
   "description": "",
   "license": "MIT",
   "scripts": {
-    "start": "http-server -c-1 src/"
+    "start": "http-server -c-1 src/",
+    "prepare": "husky install",
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.js": "prettier --write"
+  },
+  "prettier": {
+    "trailingComma": "all",
+    "tabWidth": 2,
+    "semi": true,
+    "singleQuote": true,
+    "arrowParens": "always",
+    "proseWrap": "never"
   },
   "devDependencies": {
-    "http-server": "^14.1.1"
+    "http-server": "^14.1.1",
+    "husky": "^8.0.0",
+    "lint-staged": "^13.0.3",
+    "prettier": "^2.7.1"
   }
 }
