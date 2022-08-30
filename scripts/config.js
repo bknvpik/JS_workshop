@@ -1,3 +1,3 @@
 const config = {
-  eventsUrl: 'http://fakes.herokuapp.com/events',
+  eventsUrl: 'https://fakes.herokuapp.com/events',
 };
