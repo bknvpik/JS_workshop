@@ -1,10 +1,16 @@
 import { compile } from '../helpers/compile';
-import { EventService } from '../services/event.service';
 import { EventComponent } from '../components/event.component';
 import { EventModel } from '../models/event.model';
 import { SearchComponent } from '../components/search.component';
+import { MyEvent } from '../services/event.service';
 
 export class HomePage {
+  /**
+   *
+   * @type {MyEvent[]}
+   */
+  events = [];
+
   template() {
     return `
     <div id="events-page">
@@ -23,11 +29,8 @@ export class HomePage {
     const $eventList = document.querySelector('.event-list');
     const $search = document.querySelector('#search');
     const $fragment = document.createDocumentFragment();
-    // const events = EventService.getDummyEvents();
-    // const events = await EventService.fetchEvents();
-    const events = EventService.produceEvents();
 
-    events.forEach((event) => {
+    this.events.forEach((event) => {
       const evt = new EventComponent();
       evt.event = new EventModel(event);
       evt.render($fragment);
