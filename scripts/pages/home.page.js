@@ -13,14 +13,20 @@ class HomePage {
     this.#setupPage();
   }
 
-  #setupPage() {
+  async #setupPage() {
     const $eventList = document.querySelector('.event-list');
     const $search = document.querySelector('#search');
+    const $fragment = document.createDocumentFragment();
 
-    for(let i = 0; i < 3; i++) {
-      const event = new EventComponent();
-      event.render($eventList);
-    }
+    const events = await EventService.fetchEvents();
+
+    events.forEach((event) => {
+      const evt = new EventComponent();
+      evt.event = event;
+      evt.render($fragment);
+    });
+
+    $eventList?.append($fragment);
 
     const search = new SearchComponent();
     search.render($search);

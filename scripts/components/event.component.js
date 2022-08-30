@@ -1,15 +1,19 @@
 class EventComponent {
-  template() {
+  event = null;
+
+  template({ bannerUrl, title, body }) {
     return `
     <div class="event" data-type="component">
-      <img src="https://picsum.photos/id/40/300/150" alt="" />
-        <h2>Workshop z JavaScript</h2>
-        <p>Szkolenie porusza zaawansowane techniki</p>
+      <img src="${bannerUrl}" alt="" />
+        <h2>${title}</h2>
+        <p>${body}</p>
     </div>`;
   }
 
   render($container) {
-    const $component = compile(this.template());
+    // Compile
+    const $component = compile(this.template(this.event));
+    // Rendering
     $container.append($component);
   }
 }

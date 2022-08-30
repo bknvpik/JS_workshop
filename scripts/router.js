@@ -34,9 +34,9 @@ class Router {
     // $outlet?.innerHTML = '';
     // console.timeEnd('clear DOM tree with innerHTML property');
 
-    console.time('clear DOM tree with removeChild function');
+    // console.time('clear DOM tree with removeChild function');
     while ($outlet?.firstElementChild)
       $outlet?.removeChild($outlet.firstElementChild);
-    console.timeEnd('clear DOM tree with removeChild function');
+    // console.timeEnd('clear DOM tree with removeChild function');
   }
 }

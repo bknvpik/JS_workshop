@@ -59,7 +59,7 @@ main {
   flex-wrap: wrap;
 }
 
-.events-list .event {
+.event-list .event {
   width: 300px;
   margin: 0 10px;
 }
