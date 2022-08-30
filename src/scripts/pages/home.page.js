@@ -23,8 +23,9 @@ export class HomePage {
     const $eventList = document.querySelector('.event-list');
     const $search = document.querySelector('#search');
     const $fragment = document.createDocumentFragment();
-
-    const events = await EventService.fetchEvents();
+    // const events = EventService.getDummyEvents();
+    // const events = await EventService.fetchEvents();
+    const events = EventService.produceEvents();
 
     events.forEach((event) => {
       const evt = new EventComponent();

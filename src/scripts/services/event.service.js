@@ -1,5 +1,6 @@
 import { eventFactory } from '../dummies/event.dummy';
 import { config } from '../config';
+import { eventGenerator } from '../generators/event.generator';
 
 /**
  * @typedef User
@@ -43,5 +44,17 @@ export const EventService = {
     return response.json();
   },
 
-  produceEvents() {},
+  produceEvents() {
+    const events = [];
+    const gen = eventGenerator();
+    const start = Date.now();
+    for (const event of gen) {
+      const end = Date.now();
+      if (end > start + 10) {
+        break;
+      }
+      events.push(event);
+    }
+    return events;
+  },
 };
