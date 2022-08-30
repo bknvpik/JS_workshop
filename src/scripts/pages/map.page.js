@@ -1,4 +1,6 @@
-class MapPage {
+import { compile } from '../helpers/compile';
+
+export class MapPage {
   template() {
     return `
     <div id="map-page">

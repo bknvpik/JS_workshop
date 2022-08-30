@@ -1,10 +1,10 @@
 // Shallow Copy
-function cloneWithSpread(object) {
+export function cloneWithSpread(object) {
   // Spread operator
   return { ...object };
 }
 
-function cloneWithJSON(object) {
+export function cloneWithJSON(object) {
   // Deserialize
   return JSON.parse(
     // Serialize
@@ -12,6 +12,6 @@ function cloneWithJSON(object) {
   );
 }
 
-function cloneWithAssign(object) {
+export function cloneWithAssign(object) {
   return Object.assign({}, object);
 }

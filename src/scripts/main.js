@@ -1,3 +1,8 @@
+import { HomePage } from './pages/home.page';
+import { MapPage } from './pages/map.page';
+import { Router } from '../scripts/router';
+import '../styles/main.css';
+
 function main() {
   const $outlet = document.querySelector('#content');
 
@@ -9,8 +14,8 @@ function main() {
     '/map': () => {
       const page = new MapPage();
       page.render($outlet);
-    }
-  }
+    },
+  };
 
   const router = new Router();
   router.use(routes);

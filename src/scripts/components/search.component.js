@@ -1,4 +1,6 @@
-class SearchComponent {
+import { compile } from '../helpers/compile';
+
+export class SearchComponent {
   template() {
     return `
     <form class="search-control">

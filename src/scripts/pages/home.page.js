@@ -1,4 +1,10 @@
-class HomePage {
+import { compile } from '../helpers/compile';
+import { EventService } from '../services/event.service';
+import { EventComponent } from '../components/event.component';
+import { EventModel } from '../models/event.model';
+import { SearchComponent } from '../components/search.component';
+
+export class HomePage {
   template() {
     return `
     <div id="events-page">
@@ -22,7 +28,7 @@ class HomePage {
 
     events.forEach((event) => {
       const evt = new EventComponent();
-      evt.event = event;
+      evt.event = new EventModel(event);
       evt.render($fragment);
     });
 

@@ -1,4 +1,4 @@
-class Router {
+export class Router {
   use(routes) {
     this.routes = routes;
   }
