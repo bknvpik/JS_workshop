@@ -1,7 +1,8 @@
 import { compile } from '../helpers/compile';
 import { EventModel } from '../models/event.model';
+import { Component } from './component';
 
-export class EventComponent {
+export class EventComponent extends Component {
   /**
    * @type {EventModel|null}
    */
@@ -9,26 +10,18 @@ export class EventComponent {
 
   /**
    *
-   * @param {EventModel|null} eventModel
    * @returns {string}
    */
-  template(eventModel) {
-    if (!eventModel) {
-      throw new Error('eventModel is a falsy value');
+  template() {
+    if (!this.event) {
+      throw new Error('this.event is a falsy value');
     }
-    const { bannerUrl, title, body } = eventModel;
+    const { bannerUrl, title, body } = this.event;
     return `
     <div class="event" data-type="component">
       <img src="${bannerUrl}" alt="" />
-        <h2>${title}</h2>
-        <p>${body}</p>
+        <h2>${title.fancySlice(10)}</h2>
+        <p>${body.fancySlice(30)}</p>
     </div>`;
-  }
-
-  render($container) {
-    // Compile
-    const $component = compile(this.template(this.event));
-    // Rendering
-    $container.append($component);
   }
 }

@@ -1,7 +1,8 @@
+import { Component } from '../components/component';
 import { compile } from '../helpers/compile';
 import { MyEvent } from '../services/event.service';
 
-export class MapPage {
+export class MapPage extends Component {
   /**
    *
    * @type {MyEvent[]}
@@ -32,9 +33,7 @@ export class MapPage {
 
   render($container) {
     this.#setupPage();
-
-    const $component = compile(this.template());
-    $container.append($component);
+    super.render($container);
   }
 
   #setupPage() {

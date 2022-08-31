@@ -1,15 +1,19 @@
+import '../styles/main.css';
+import './native_extensions/fancy-slice';
 import { HomePage } from './pages/home.page';
 import { MapPage } from './pages/map.page';
-import { Router } from '../scripts/router';
+import { Router } from './router';
 import { EventService } from './services/event.service';
-import '../styles/main.css';
+import { clearDOMElement } from './utils/clearDOMElement';
 
-function main() {
+async function main() {
+  // console.log('hello world');
+
   const $outlet = document.querySelector('#content');
 
-  // const events = EventService.getDummyEvents();
-  // const events = await EventService.fetchEvents();
-  const events = EventService.produceEvents();
+  // const events = EventsService.getDummyEvents();
+  const events = await EventService.fetchEvents();
+  // const events = EventsService.produceEvents();
 
   const routes = {
     '/': () => {
@@ -23,10 +27,20 @@ function main() {
       page.render($outlet);
     },
   };
-
   const router = new Router();
   router.use(routes);
+  router.on('before:resolve', () => {
+    clearDOMElement($outlet);
+  });
+  router.on('after:resolve', (payload) => {
+    console.log('router, resolve', payload);
+  });
   router.start();
+
+  // Hermetyzacja / Encapsulate
+  // router.#resolveRoute();
 }
 
+// main();
+// window.addEventListener('load', main);
 window.addEventListener('DOMContentLoaded', main);
